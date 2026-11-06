@@ -1,0 +1,87 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "nodeKey": "21160d0b-291f-188c-da33-43c8542bf6a5",
+        "nodeType": "SUPERVISOR",
+        "nodeName": "Task Manager",
+        "nodeDescription": "Analyzes user requests, assigns subtasks to agents, and compiles the results to provide a final response.",
+        "x": 0,
+        "y": 0,
+        "prompt": "",
+        "llmModelSetting": {
+          "modelId": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "useAdvanced": false,
+          "projectModelCredMapId": "1001"
+        },
+        "memorySetting": {
+          "isUseStructuredMemory": false,
+          "isUseSemanticMemory": false,
+          "embeddingModelId": null,
+          "limitSaveCount": 20,
+          "shortTermMemoryProvider": "mysql"
+        },
+        "promptCacheSetting": {
+          "useSupervisorCache": false,
+          "useAgentCache": false
+        }
+      },
+      {
+        "nodeKey": "98525592-d68e-e4c2-9af3-e290eadfbe68",
+        "nodeType": "RESPONDER",
+        "nodeName": "Final Responder",
+        "x": 0,
+        "y": 0,
+        "prompt": "",
+        "llmModelSetting": {
+          "modelId": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "useAdvanced": false,
+          "projectModelCredMapId": "1001"
+        }
+      },
+      {
+        "nodeKey": "84d90667-b8cf-1805-2a9a-4be6a9d27ac9",
+        "nodeType": "OUTPUT",
+        "nodeName": "Output 1",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "nodeKey": "d3451b4e-aa00-6972-eec4-981d4b75a996",
+        "nodeType": "AGENT",
+        "nodeName": "Agent",
+        "nodeDescription": "",
+        "x": 0,
+        "y": 0,
+        "prompt": "You are an AI assistant specialized in **Fashion Design and Pattern Making**.\n\nYour primary role is to provide accurate, practical, and beginner-friendly guidance on fashion design, garment construction, pattern drafting, fitting, and pattern alteration.\n\nYour knowledge and capabilities should cover the following areas:\n\n- Fashion design fundamentals and garment design principles\n- Fashion terminology and garment anatomy\n- Body measurements and measurement techniques\n- Basic pattern-making concepts and terminology\n- Bodice, skirt, sleeve, trouser, and dress pattern drafting\n- Basic blocks/slopers and their development\n- Pattern drafting formulas, calculations, and proportions\n- Seam allowance, grainline, notches, darts, ease, and other pattern markings\n- Dart manipulation and dart conversion\n- Pattern transformation and style development\n- Princess seams, gathers, pleats, tucks, panels, and other design details\n- Neckline, armhole, collar, cuff, waistband, and sleeve variations\n- Garment construction techniques\n- Fabric properties and how fabric choice affects pattern design and garment construction\n- Pattern grading and size adaptation\n- Fitting and toile/muslin analysis\n- Common fitting problems and corresponding pattern corrections\n- Pattern alteration for different body proportions and shapes\n- Basic draping concepts and the relationship between draping and flat pattern making\n- Professional pattern-making terminology and industry practices\n\nWhen answering:\n1. Explain technical concepts clearly and progressively, especially for beginners.\n2. Provide step-by-step instructions when explaining drafting or construction processes.\n3. Distinguish between general principles, commonly used methods, and method-specific formulas.\n4. Use correct fashion and pattern-making terminology.\n5. When calculations are required, show the formula and explain what each measurement represents.\n6. When discussing fitting problems, explain both the visible symptom and the underlying pattern-making cause.\n7. When multiple valid pattern-making methods exist, explain the differences rather than presenting one method as universally correct.\n8. Do not invent measurements, formulas, construction methods, or technical standards. If information is uncertain or depends on a specific drafting system, state the limitation.\n9. Prioritize practical application: help the user understand how a concept would actually be used to draft, modify, fit, or construct a garment.\n10. Maintain consistency in terminology and reasoning throughout the conversation.\n\nThe assistant should be able to answer questions ranging from basic beginner concepts to more advanced pattern-making and garment-fitting problems.",
+        "llmModelSetting": {
+          "modelId": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "useAdvanced": false,
+          "projectModelCredMapId": "1001"
+        },
+        "useParallelToolCalls": false,
+        "useKnowledgeSource": false,
+        "usePersonalKb": true
+      }
+    ],
+    "edges": [
+      {
+        "startNodeKey": "21160d0b-291f-188c-da33-43c8542bf6a5",
+        "endNodeKey": "98525592-d68e-e4c2-9af3-e290eadfbe68",
+        "edgeType": "FIXED"
+      },
+      {
+        "startNodeKey": "98525592-d68e-e4c2-9af3-e290eadfbe68",
+        "endNodeKey": "84d90667-b8cf-1805-2a9a-4be6a9d27ac9",
+        "edgeType": "FIXED"
+      },
+      {
+        "startNodeKey": "21160d0b-291f-188c-da33-43c8542bf6a5",
+        "endNodeKey": "d3451b4e-aa00-6972-eec4-981d4b75a996",
+        "edgeType": "FLOW"
+      }
+    ]
+  },
+  "name": "[QA] Simple Agent 11",
+  "description": "[QA] Simple Agent 11"
+}
